@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>마이페이지</title>
+  <link rel="stylesheet" href="mypage.css">
+</head>
+<body>
+  <header>
+    <h1>마이페이지</h1>
+  </header>
+  <main>
+    <section class="profile">
+      <div class="profile-image">
+        <img src="profile-pic.jpg" alt="프로필 이미지">
+      </div>
+      <div class="profile-details">
+        <h2>사용자 이름</h2>
+        <p>Email: user@example.com</p>
+        <p>회원 가입일: 2023년 1월 1일</p>
+      </div>
+    </section>
+    
+    <div class = "container" mt-3>
+      <form action = "/file " method="post" enctype="multipart/form-data">
+          <input type = "file" name = "file"></input>
+          <button type = "submit" calss ="btn btn-outline-primary">첨부</button>
+      </form>
+</div>
+  </main>
+</body>
+</html>

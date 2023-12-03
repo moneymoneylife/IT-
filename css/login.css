@@ -1,0 +1,67 @@
+/*
+
+.title {
+    top: 30%;
+    position: absolute;
+    text-align: center;
+  }
+  
+  .container {
+    width: 410px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .container h2 {
+    font-size: 32px;
+    color: black;
+    text-align: center;
+    border-bottom: 2px solid black;
+  }
+  
+  input:hover {
+    padding: 0 0 13px;
+    background: aliceblue;
+  }
+  */
+
+.container {
+  width: 410px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.container h2 {
+  padding: 0 0 20px;
+  font-size: 32px;
+  color: black;
+  border-bottom: 3px solid black;
+  text-align: center;
+  line-height: 1;
+}
+
+.container .login {
+  padding: 0, 0, 12px;
+}
+
+.container .login .form-control {
+  text-indent: 16px;
+  width: 100%;
+  height: 40px;
+  box-sizing: border-box;
+  margin: 5px;
+}
+
+.container .login button {
+  margin-top: 2%;
+  margin-left: 5px;
+  width: 100%;
+  height: 56px;
+  font-size: 18px;
+  color: white;
+  background: slateblue;
+}

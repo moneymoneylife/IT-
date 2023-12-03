@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
+  <meta charset="UTF-8">
+  <title>게시판</title>
+  <link rel="stylesheet" href="list.css">
 </head>
 <body>
-    <table>
-        <thead>
-            <th>아이디</th>
-            <th>비밀번호</th>
-        </thead>
-        <tbody>
-            <%for(let i = 0; i<data.length; i++){ %>
-                <tr>
-                    <td><%= data[i].userid %></td>
-                    <td><%= data[i].userpw %></td>
-                </tr>
-                <% } %>
-        </tbody>
-    </table>
+  <div class="board">
+    
+        <%for(let i = 0; i<data.length; i++){ %>
+            <div class="post">
+                <a href = "/content/<%=data[i]._id %>"><%= data[i].title %></a></td>
+                <%= data[i].userid %></td>
+            
+          </div>
+            <% } %>
+  
+  </div>
 </body>
 </html>

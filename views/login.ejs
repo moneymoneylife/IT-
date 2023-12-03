@@ -1,19 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-</head>
-<body>
-    <div class="container mt-4">
-        <form action = "/login" method="post">
-            <div>
-            <input type = "text" name = "userid" class = "form-control">
-            </div>
-            <div>
-            <input type = "text" name = "userpw" class = "form-control">
-            </div>
-            <button type = "submit" class = "btn btn-warning">로그인</button>
-        </form>
-    </div>
-</body>
-</html>
+  <head>
+    <link rel="stylesheet" href="login.css" />
+    <title>로그인</title>
+  </head>
+  <body>
+    <hr />
+    <section class="container">
+      <h2>로그인</h2>
+      <form class="login" action="/login" method="post">
+        <div>
+          <input
+            type="text"
+            placeholder="아이디"
+            name="userid"
+            title="아이디입력"
+            class="form-control"
+          />
 
+          <div>
+          <input
+            type="password"
+            placeholder="비밀번호"
+            name="userpw"
+            title="비밀번호입력"
+            class="form-control"
+          />
+
+        <div>
+          <button type="submit" class="btn btn-warning">로그인</button>
+        </div>
+      </form>
+    </section>
+  </body>
+</html>
