@@ -1,19 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
+    
 <head>
+    
+  <meta charset="UTF-8">
+  <title>회원가입</title>
+  <link rel="stylesheet" href="signup.css">
 </head>
 <body>
-    <div class="container mt-4">
-        <form action = "/signup" method="post">
-            <div>
-            <input type = "text" name = "signup_userid" class = "form-control">
-            </div>
-            <div>
-            <input type = "text" name = "signup_userpw" class = "form-control">
-            </div>
-            <button type = "submit" class = "btn btn-warning">가입</button>
-        </form>
-    </div>
+  <div class="container">
+      <h2>회원가입</h2>
+      <div class="form-group">
+        <label for="username">아이디:</label>
+        <input type="text" id="signup_userid" name="signup_userid" required>
+        <p></p>
+        <button id="myButton" name="myButton" class="myButton btn btn-outline-primary">중복확인</button>
+      </div>
+      
+      <div class="form-group">
+        <label for="password">비밀번호:</label>
+        <input type="password" id="signup_userpw" name="signup_userpw" required>
+      </div>
+      <div class="form-group">
+        <label for="confirm-password">비밀번호 확인:</label>
+        <input type="password" id="confirm_password" name="confirm_password" required>
+      </div>
+      <div class="form-group">
+        <label for="username">사용자 이름:</label>
+        <input type="text" id="signup_username" name="signup_username" required>
+      </div>
+      <div class="form-group">
+        <label for="email">이메일:</label>
+        <input type="email" id="signup_email" name="signup_email" required>
+      </div>
+      <div class="form-group">
+        <label for="phone">전화번호:</label>
+        <input type="text" id="signup_phone" name="signup_phone" required>
+      </div>
+      
+      <button type="submit" class = "signup">가입하기</button>
+    </form>
+  </div>
+  <script src = "https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script>
+
+    $('.myButton').click(function(e){
+        console.log("myButton");
+        var confirm_userid = document.getElementById('signup_userid').value
+        $.ajax({
+            type:'post',
+            url : '/confirm_userid',
+            data : {confirm_userid : confirm_userid}
+        }).done(function(result){
+            console.log("성공");
+            var button = document.getElementById("myButton");
+        button.innerHTML = "사용가능";
+        button.style.backgroundColor = "#555";
+        button.style.color = "#ccc";
+        button.disabled = true;
+        button.classList.add("disabled");
+        }).fail(function(xhr,textStatus,errorThrown){
+            alert("아이디가 중복입니다.");
+        });
+    });
+
+    $('.signup').click(function(e){
+        console.log("signup");
+        var signup_userid = document.getElementById('signup_userid').value;
+        var signup_userpw = document.getElementById('signup_userpw').value;
+        var confirm_password = document.getElementById('confirm_password').value;
+        var signup_username = document.getElementById('signup_username').value;
+        var signup_email = document.getElementById('signup_email').value;
+        var signup_phone = document.getElementById('signup_phone').value;
+        $.ajax({
+            type:'post',
+            url : '/signup',
+            data : {
+                signup_userid:signup_userid,
+                signup_userpw : signup_userpw, 
+                confirm_password : confirm_password,
+                signup_username:signup_username,
+                signup_email:signup_email,
+                signup_phone,signup_phone
+                }
+        }).done(function(result){
+            window.location.href = '/'; 
+        }).fail(function(xhr,textStatus,errorThrown){
+            alert("비밀번호가 맞지 않습니다.");
+        });
+    });
+  </script>
 </body>
 </html>
 

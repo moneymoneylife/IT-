@@ -1,31 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./sty.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="sty.css" />
     <title>IT제 취업해</title>
-</head>
-<body>
-    <div class="container"> 
-        <div class="header">
-            <h1><a>COMPANY</a></h1>
-            <div class="nav">
-                <ul>
-                    <li><a href="/">홈</a></li>
-                    <li><a href="/introduction">소개</a></li>
-                    <li><a href="/companies">기업별</a></li>
-                    <li><a href="/zone">지역별</a></li>
-                    <li><a href="/contact">더보기</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="hero">
-            <h2>취업걱정NO</h2>
-            <p>취업 하나 보고 대학에 들어온 여러분을 위한 걱정을 <br>덜어주기 위해 찾아왔습니다.</p>
-            <button>클릭</button>
-        </div>   
+  </head>
+  <body>
+    <!-- 헤더 -->
+    <header>
+      <a href="/" class="logo"
+        ><img src="img/logo.png" width="200px" height="60px"
+      /></a>
 
-</body>
+      <nav>
+        <a href="/">홈</a>
+        <a href="/introduction">소개</a>
+        <a href="/companies">기업별</a>
+        <a href="/zone">지역별</a>
+        <a href="/contact">마이페이지</a>
+      </nav>
+
+      <% if(user){ %>
+        <p><%= user.username %> 님</p>
+    <% } else { %>
+      <div class="icon">
+        <a href="/login">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="currentColor"
+            class="bi bi-person-circle"
+            viewBox="0 0 16 16"
+          >
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+            <path
+              fill-rule="evenodd"
+              d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
+            />
+          </svg>
+        </a>
+      </div>
+        <% } %>
+      
+    </header>
+
+    <section class="home" id="home">
+      <h3>우리가 가고 싶어요!</h3>
+      <span
+        >아주아주 많은 기업들이 있지만 우리 삼대장이 골라주는 3가지 기업
+        맛보기!</span
+      >
+      <p>이거이거 아무에게나 알려주지 않는다구?!</p>
+    </section>
+  </body>
 </html>
-

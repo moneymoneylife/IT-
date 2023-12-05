@@ -21,12 +21,13 @@
           <label for="post-content">내용:</label>
           <textarea id="content" name="content" placeholder="게시글 내용을 입력하세요" required></textarea>
         </div>
+        <input type = "date" class = "form-control" name = "someDate">
         <button type="submit">작성</button>
       </form>
 </form>
 <div class="container" mt-3>
   <form action="/photo" method="post" enctype="multipart/form-data">
-    <input type="file" name="picture" class="btn btn-outline-primary"></input>
+    <input type="file" name="picture" class="btn btn-outline-primary" accept="image/*"></input>
     <button type="submit" calss="btn btn-outline-primary">첨부</button>
   </form>
 </div>
