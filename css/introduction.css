@@ -1,82 +1,179 @@
-@font-face {
-    font-family: abster;
-    src: url(font/abster-webfont.woff2) format('woff');
+:root {
+  --black: #333;
+  --white: #fff;
+  --light-color: #666;
+  --light-bg: #eeeeee;
+  --main-color: #007bff;
 }
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+  text-decoration: none;
+  outline: none;
+  transition: all 0.2s linear;
+}
+html {
+  font-size: 62.5%;
+}
+::-webkit-scrollbar {
+  width: 1rem;
+}
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--main-color);
+}
+::selection {
+  background-color: var(--main-color);
+  color: var(--white);
+}
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 8%;
+  background-color: var(--white);
+  box-shadow: 0.1rem 0.5rem 1rem var(--black);
+}
+.header .logo img {
+  height: 6rem;
 }
 
-.container{
-    width: 100%;
-    height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8));
+.header .navbar a {
+  font-size: 1.5rem;
+  color: var(--black);
+  margin-right: 2rem;
+}
+.header .navbar a:hover {
+  color: var(--main-color);
+  text-decoration: underline;
+}
+.header .navbar i {
+  font-size: 2rem;
+  color: var(--black);
+}
+.header .navbar i:hover {
+  color: var(--main-color);
 }
 
-.container .header{
-    width: 80%;
-    height: 80px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.header .icon a {
+  font-size: 2px;
+  color: #333;
+  margin-left: 1px;
 }
 
-.container .header h1 a{
-    text-decoration: none;
-    color: white;
-    font-family: abster;
+.header .icon a :hover {
+  color: #007bff;
 }
 
-.container .nav ul li{
-    display: inline-block;
-    margin: 0 10px;
+.footer {
+  background-color: var(--black);
+  padding: 3rem 8%;
+  text-align: center;
+}
+.footer .box-container {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 3rem;
+  padding: 3rem 0;
+  width: 100%;
+  border-bottom: 0.1rem solid #999;
+  margin-bottom: 2rem;
+}
+.footer .box-container .box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.footer .box-container .box h3 {
+  font-size: 2rem;
+  color: var(--white);
+}
+.footer .box-container .box a {
+  font-size: 1.2rem;
+  color: #999;
+  text-transform: lowercase;
+}
+.footer .box-container .box a:hover {
+  color: var(--main-color);
+  text-decoration: underline;
+}
+.footer .credit {
+  font-size: 1.8rem;
+  color: var(--white);
+}
+.footer .credit span {
+  color: var(--main-color);
 }
 
-.container .nav ul li a{
-    text-decoration: none;
-    color: white;
+.about {
+  padding: 10rem 8%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.about h1 {
+  font-size: 4rem;
+  color: var(--black);
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  background-color: whitesmoke;
+  width: 100%;
+  text-align: center;
+}
+.about h1 span {
+  color: var(--main-color);
+}
+.about .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+.about .container .content h3 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+.about .container .content h3 span {
+  color: var(--main-color);
+}
+.about .container .content p {
+  font-size: 1.1rem;
+  color: var(--light-color);
+  line-height: 1.5;
+  text-transform: lowercase;
+  margin-bottom: 2rem;
 }
 
-.container .nav ul li a:hover{
-    
-    color: #1fdfdf;
+.about .text {
+  margin-top: 2px;
+  background-color: whitesmoke;
+  padding: 30px;
 }
-
-.container .hero{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    color: #ffffff;
-    text-align: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+.about .text h2 {
+  font-size: 1.9rem;
+  color: #c08261;
+  margin-bottom: 2rem;
+  text-decoration: overline;
 }
-
-.container .hero h2{
-    font-size: 60px;
-    margin-bottom: 20px;
-}
-
-.container .hero p{
-    font-size: 22px;
-}
-
-.container .hero button{
-    background: none;
-    border: 2px solid darkseagreen; /**/
-    color: white;
-    padding: 15px 20px; 
-    border-radius: 20px; /*테두리가 20px만큼 둥글해짐*/
-    margin-top: 30px; /*버튼과 p의 텍스트 간격을 띄우기*/
-    outline: none; /*클릭시 잔상 없애기*/
-    cursor: pointer; /*커서 보이기*/
-    transition: all .4s;
-}
-
-.container .hero button:hover{
-    background-color: darkslategray;
-
+.about .text p {
+  font-size: 1.2rem;
+  color: var(--light-color);
+  line-height: 1.5;
+  text-transform: lowercase;
+  margin-bottom: 2rem;
 }

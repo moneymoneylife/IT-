@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>찜목록</title>
+    <link rel="stylesheet" href="/cart.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <a href="/" class="logo"
+        ><img src="images/logo.png" width="200px" height="60px" alt=""
+      /></a>
+      <nav class="navbar">
+        <a href="/">홈</a>
+        <a href="/introduction">소개</a>
+        <a href="/companies">기업별</a>
+        <a href="/contact">지역별</a>
+        <a href="/cart">마이페이지</a>
+      </nav>
+      <% if(user){ %>
+        <%= user.username %> 님
+        <a href = "/logout">로그아웃</a>
+    <% } else { %>
+      <div class="icon">
+        <a href="/login">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="currentColor"
+            class="bi bi-person-circle"
+            viewBox="0 0 16 16"
+          >
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+            <path
+              fill-rule="evenodd"
+              d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
+            />
+          </svg>
+        </a>
+      </div>
+        <% } %>
+    </header>
+
+    <section class="cart">
+      <div class="cart-container">
+        <table>
+          
+          <tr>
+            <th>기업</th>
+            <th>지역</th>
+            <th>연봉</th>
+          </tr>
+          <% for(let i=0; i<data.length; i++){%>
+          <tr>
+            <td>
+              <div class="box">
+                <img src="<%= data[i].path %>" alt="" />
+                <div class="content">
+                  <a href="/details/<%= data[i]._id %>"><h3><%= data[i].title%></h3></a>
+                  <button class = "delete" data-id = "<%= data[i]._id%>">remove</button>
+                </div>
+              </div>
+            </td>
+            <td>
+              <p><span><%= data[i].local%></span></p>
+            </td>
+            <td>
+              <p><span><%= data[i].sal%></span>만원</p>
+            </td>
+          </tr>
+          <% } %>
+          </table>
+
+      </div>
+    </section>
+
+    <!-- 수정완 -->
+    <footer class="footer">
+      <div class="box-container">
+        <div class="box">
+          <h3>빠른 메뉴</h3>
+          <a href="home.html">홈</a>
+          <a href="introduction.html">소개</a>
+          <a href="companies.html">기업별</a>
+          <a href="contact.html">지역별</a>
+          <a href="cart.html">마이페이지</a>
+        </div>
+        <div class="box">
+          <h3>소셜미디어</h3>
+          <a href="#">facebook</a>
+          <a href="#">instagram</a>
+          <a href="#">youtube</a>
+        </div>
+        <div class="box">
+          <h3>문의</h3>
+          <a href="#">phone: 0654325678</a>
+          <a href="#">email: omaimaaouane@gmail.com</a>
+          <a href="#">address: morocco, casablanca-567890</a>
+        </div>
+      </div>
+    </footer>
+    
+<script src = "https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script>
+
+  $('.delete').click(function(e){
+      console.log("delete");
+      var sid = e.target.dataset.id;
+      $.ajax({
+          type:'post',
+          url : '/delete',
+          data : {_id:sid}
+      }).done(function(result){
+          console.log("삭제 성공");
+          location.reload();
+      }).fail(function(xhr,textStatus,errorThrown){
+        console.log(errorThrown)  ;
+        alert("오류");
+      });
+  });
+
+  </script>
+
+  </body>
+</html>

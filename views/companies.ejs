@@ -1,27 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="companies.css">
-    <title>IT제 취업해</title>
-</head>
-<body>
-    <div class="container"> 
-        <div class="header">
-            <h1><a href="/"><img src="img/logo.png" width="200px" height="60px"></a></h1>
-            <div class="nav">
-                <ul>
-                    <li><a href="/">홈</a></li>
-                    <li><a href="/introduction">소개</a></li>
-                    <li><a href="/companies">기업별</a></li>
-                    <li><a href="/zone">지역별</a></li>
-                    <li><a href="/contact">더보기</a></li>
-                </ul>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IT제 취업해-기업별</title>
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/companies.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <a href="/" class="logo"
+        ><img src="images/logo.png" width="200px" height="60px" alt=""
+      /></a>
+      <nav class="navbar">
+        <a href="/">홈</a>
+        <a href="/introduction">소개</a>
+        <a href="/companies">기업별</a>
+        <a href="/contact">지역별</a>
+        <a href="/cart">마이페이지</a>
+      </nav>
+      <% if(user){ %>
+        <%= user.username %> 님
+        <a href = "/logout">로그아웃</a>
+    <% } else { %>
+      <div class="icon">
+        <a href="/login">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="currentColor"
+            class="bi bi-person-circle"
+            viewBox="0 0 16 16"
+          >
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+            <path
+              fill-rule="evenodd"
+              d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
+            />
+          </svg>
+        </a>
+      </div>
+        <% } %>
+    </header>
+
+    <section class="products">
+      <div class="products-header">
+        <h3>모든기업</h3>
+        <select class="default">
+          <option value="1">기본</option>
+          <option value="2">최근등록순</option>
+          <option value="3">인기순</option>
+        </select>
+      </div>
+
+      <!-- 기업정보 입력 평점은 잡코리아 참고-->
+      <div class="box-container">
+        <%for(let i = 0; i<data.length; i++){ %>
+          <div class="box">
+            <img src="<%= data[i].path%>" alt="" />
+            <h3><%= data[i].title %></h3>
+            <div class="stars">
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star-half" aria-hidden="true"></i>
             </div>
+            <div class="flex">
+              <a href="/details/<%= data[i]._id %>" class="btn">view details</a>
+            </div>
+          </div>
+          <% } %>
+      </div>
+      <div class="parent-container">
+        <h4><a href="/enter">등록하기</a></h4>
+    </div>
+      <div class="pages">
+        <div class="page">1</div>
+        <div class="page">2</div>
+        <div class="page">3</div>
+        <div class="page">4</div>
+        <div class="page">
+          <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
         </div>
- 
+      </div>
+    </section>
 
-</body>
+    <!-- 수정 완 -->
+    <footer class="footer">
+      <div class="box-container">
+        <div class="box">
+          <h3>빠른 메뉴</h3>
+          <a href="home.html">홈</a>
+          <a href="introduction.html">소개</a>
+          <a href="companies.html">기업별</a>
+          <a href="contact.html">지역별</a>
+          <a href="cart.html">마이페이지</a>
+        </div>
+        <div class="box">
+          <h3>소셜미디어</h3>
+          <a href="https://web.dongguk.ac.kr/main">homepage</a>
+          <a href="https://www.instagram.com/dongguk_wise_official"
+            >instagram</a
+          >
+          <a href="https://www.youtube.com/@wise2034">youtube</a>
+        </div>
+        <div class="box">
+          <h3>문의</h3>
+          <a>phone: 054-770-2114</a>
+          <a>email: dguhuman@dongguk.ac.kr</a>
+          <a>address: [38066] 경북 경주시 동대로 123 동국대학교 WISE캠퍼스</a>
+        </div>
+      </div>
+    </footer>
+    
+<script src = "https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script>
+$('.default').change(function() {
+  console.log("sort");
+    const selectedValue = $(this).val(); // 선택된 값 가져오기
+    console.log(selectedValue);
+    $.ajax({
+        type: 'POST',
+        url: '/sorting',
+        data: { sorting: selectedValue },
+        }).done(function(result){
+          console.log("성공");
+          location.reload();
+      }).fail(function(xhr,textStatus,errorThrown){
+          alert("오류");
+      });
+  });
+</script>
+  </body>
 </html>
-

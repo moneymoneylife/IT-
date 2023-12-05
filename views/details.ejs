@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IT제 취업해</title>
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/details.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <a href="/" class="logo"
+><img src="/images/logo.png" width="200px" height="60px" alt=""
+      /></a>
+      <nav class="navbar">
+        <a href="/">홈</a>
+        <a href="/introduction">소개</a>
+        <a href="/companies">기업별</a>
+        <a href="/contact">지역별</a>
+        <a href="/cart">마이페이지</a>
+      </nav>
+      <% if(user){ %>
+        <%= user.username %> 님
+        <a href = "/logout">로그아웃</a>
+    <% } else { %>
+      <div class="icon">
+        <a href="/login">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="currentColor"
+            class="bi bi-person-circle"
+            viewBox="0 0 16 16"
+          >
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+            <path
+              fill-rule="evenodd"
+              d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
+            />
+          </svg>
+        </a>
+      </div>
+        <% } %>
+    </header>
+    <form action="/details/:<%=data._id%>" method="post">
+      <div id="id" value="<%=data._id%>"></div>
+    <section class="details">
+      <div class="image">
+        <img src="<%=data.path%>" alt="" />
+      </div>
+      <div class="content">
+        <span>IT기업</span>
+        <h1><%= data.title %></h1>
+        <h3><%= data.content %></h3>
+        <h3>모집 마감일 : <%= data.deadline %></h3>
+        <h3>연봉 : <%= data.sal %></h3>
+        <h3>email : <%= data.email %></h3>
+        <!--<a class="btn" id="data" name="data" data-id="<%= data._id %>">찜</a>-->
+        <button>찜</button>
+        </div>
+    </section>
+    </form>
+    <section class="rolated-products">
+      <div class="flex">
+        <h3>rolated products</h3>
+        <a href="products.html">view more</a>
+      </div>
+      <div class="box-container">
+        <div class="box">
+          <img src="images/p9.avif" alt="" />
+          <h3>Product name</h3>
+          <div class="stars">
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star-half" aria-hidden="true"></i>
+          </div>
+          <div class="flex">
+            <p>$50.00</p>
+            <a href="details.html" class="btn">view details</a>
+          </div>
+        </div>
+        <div class="box">
+          <img src="images/p10.avif" alt="" />
+          <h3>Product name</h3>
+          <div class="stars">
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star-half" aria-hidden="true"></i>
+          </div>
+          <div class="flex">
+            <p>$50.00</p>
+            <a href="details.html" class="btn">view details</a>
+          </div>
+        </div>
+        <div class="box">
+          <img src="images/p11.avif" alt="" />
+          <h3>Product name</h3>
+          <div class="stars">
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star-half" aria-hidden="true"></i>
+          </div>
+          <div class="flex">
+            <p>$50.00</p>
+            <a href="details.html" class="btn">view details</a>
+          </div>
+        </div>
+        <div class="box">
+          <img src="images/p12.avif" alt="" />
+          <h3>Product name</h3>
+          <div class="stars">
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star-half" aria-hidden="true"></i>
+          </div>
+          <div class="flex">
+            <p>$50.00</p>
+            <a href="details.html" class="btn">view details</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="box-container">
+        <div class="box">
+          <h3>quick links</h3>
+          <a href="/home">home</a>
+          <a href="/products">products</a>
+          <a href="/about">about</a>
+          <a href="/contact">contact</a>
+          <a href="/account">account</a>
+        </div>
+        <div class="box">
+          <h3>follow us</h3>
+          <a href="#">facebook</a>
+          <a href="#">instagram</a>
+          <a href="#">youtube</a>
+        </div>
+        <div class="box">
+          <h3>contact us</h3>
+          <a href="#">phone: 0654325678</a>
+          <a href="#">email: omaimaaouane@gmail.com</a>
+          <a href="#">address: morocco, casablanca-567890</a>
+        </div>
+      </div>
+      <div class="credit">created by <span>miss. web designer</span></div>
+    </footer>
+    <script src = "https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script>
+      $('.btn').click(function(e){
+          console.log("btn");
+          // 현재 URL을 가져옵니다.
+          var currentUrl = window.location.href;
+          // URL에서 id 값을 추출합니다.
+          var _id = currentUrl.substring(currentUrl.lastIndexOf('/') + 1);
+          console(_id);
+          $.ajax({
+              type:'post',
+              url : '/details/currentUrl',
+              data : {_id : _id}
+          }).done(function(result){
+              location.href = '/cart';
+          }).fail(function(xhr,textStatus,errorThrown){
+            alert("이미 찜 해놓은 기업입니다.");
+          });
+      });
+
+    </script>
+  </body>
+</html>

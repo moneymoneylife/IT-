@@ -1,13 +1,53 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
-  <meta charset="UTF-8">
-  <title>게시글 작성</title>
-  <link rel="stylesheet" href="enter.css">
-</head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>찜목록</title>
+    <link rel="stylesheet" href="/enter.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <a href="/" class="logo"
+        ><img src="images/logo.png" width="200px" height="60px" alt=""
+      /></a>
+      <nav class="navbar">
+        <a href="/">홈</a>
+        <a href="/introduction">소개</a>
+        <a href="/companies">기업별</a>
+        <a href="/contact">지역별</a>
+        <a href="/cart">마이페이지</a>
+      </nav>
+      <% if(user){ %>
+        <%= user.username %> 님
+        <a href = "/logout">로그아웃</a>
+    <% } else { %>
+      <div class="icon">
+        <a href="/login">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="currentColor"
+            class="bi bi-person-circle"
+            viewBox="0 0 16 16"
+          >
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+            <path
+              fill-rule="evenodd"
+              d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
+            />
+          </svg>
+        </a>
+      </div>
+        <% } %>
+    </header>
 
-<form action="/save" method="post">
+<form action="/photo" method="post" enctype="multipart/form-data" class="post-form">
 
   <body>
     <main class="container">
@@ -21,17 +61,62 @@
           <label for="post-content">내용:</label>
           <textarea id="content" name="content" placeholder="게시글 내용을 입력하세요" required></textarea>
         </div>
-        <input type = "date" class = "form-control" name = "someDate">
-        <button type="submit">작성</button>
-      </form>
-</form>
+        <div class="form-group">
+          <label for="post-title">연봉:</label>
+          <input type="text" id="sal" name="sal" placeholder="ex) 3000만원이면 '3000'" required>
+        </div>
+        <div class="form-group">
+          <label for="post-title">email:</label>
+          <input type="text" id="email" name="email" value="<%= user.email%>" placeholder="email" required>
+        </div>
+        <div class="form-group">
+          <label for="post-title">local:</label>
+          <input type="text" id="local" name="local" placeholder="ex) 경기도" required>
+        </div>
+        <label for="post-title">모집 마감일:</label>
+        <input type = "date" class = "form-control" id="deadline" name = "deadline">
+        <p></p>
+        
 <div class="container" mt-3>
-  <form action="/photo" method="post" enctype="multipart/form-data">
     <input type="file" name="picture" class="btn btn-outline-primary" accept="image/*"></input>
     <button type="submit" calss="btn btn-outline-primary">첨부</button>
   </form>
 </div>
+<button class = "save" type="submit">작성</button>
 </main>
+
+<script src = "https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script>
+
+  $('.save').click(function(e){
+      console.log("save");
+      var title = document.getElementById('title').value
+      var content = document.getElementById('content').value
+      var sal = document.getElementById('sal').value
+      var email = document.getElementById('email').value
+      var local = document.getElementById('local').value
+      var deadline = document.getElementById('deadline').value
+      $.ajax({
+          type:'post',
+          url : '/save',
+          data : {
+            title:title,
+            content:content,
+            sal:sal,
+            email:email,
+            local:local,
+            deadline:deadline
+          }
+      }).done(function(result){
+          console.log("성공");
+          location.href="/companies";
+      }).fail(function(xhr,textStatus,errorThrown){
+          alert("오류");
+      });
+  });
+
+</script>
 </body>
+
 
 </html>

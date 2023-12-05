@@ -1,13 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-    
-<head>
-    
-  <meta charset="UTF-8">
-  <title>회원가입</title>
-  <link rel="stylesheet" href="signup.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IT제 취업해</title>
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/signup.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- +찜 아이콘 -->
+    <header class="header">
+      <a href="/" class="logo"><img src="images/logo.png" width="200px" height="60px" alt="" /></a>
+      <nav class="navbar">
+        <a href="/">홈</a>
+        <a href="/introduction">소개</a>
+        <a href="/companies">기업별</a>
+        <a href="/contact">지역별</a>
+        <a href="/cart">마이페이지</a>
+      </nav>
+      <div class="icon">
+        <a href="/login">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="currentColor"
+            class="bi bi-person-circle"
+            viewBox="0 0 16 16"
+          >
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+            <path
+              fill-rule="evenodd"
+              d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
+            />
+          </svg>
+        </a>
+      </div>
+    </header>
   <div class="container">
       <h2>회원가입</h2>
       <div class="form-group">
@@ -34,7 +67,7 @@
         <input type="email" id="signup_email" name="signup_email" required>
       </div>
       <div class="form-group">
-        <label for="phone">전화번호:</label>
+        <label for="phone">전화번호: ex)010-0000-0000</label>
         <input type="text" id="signup_phone" name="signup_phone" required>
       </div>
       
@@ -74,7 +107,7 @@
         var signup_phone = document.getElementById('signup_phone').value;
         $.ajax({
             type:'post',
-            url : '/signup',
+            url : '/signup_user',
             data : {
                 signup_userid:signup_userid,
                 signup_userpw : signup_userpw, 

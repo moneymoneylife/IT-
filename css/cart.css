@@ -119,104 +119,102 @@ html {
   color: var(--main-color);
 }
 
-.products {
+.cart {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 15rem 15%;
-  flex-direction: column;
+  padding: 10rem 15%;
+  margin-bottom: 10rem;
 }
-.products .products-header {
+.cart .cart-container {
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 4rem;
 }
-.products .products-header h3 {
-  font-size: 2rem;
+.cart .cart-container table {
+  width: 100%;
+}
+.cart .cart-container table th {
+  background: var(--main-color);
+  color: var(--white);
+  padding: 0.5rem 1rem;
+  font-size: 1.7rem;
+}
+.cart .cart-container table tr td {
+  text-align: center;
+}
+.cart .cart-container table tr td .box {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+.cart .cart-container table tr td .box img {
+  height: 8rem;
+  width: 8rem;
+  object-fit: cover;
+}
+.cart .cart-container table tr td .box .content h3 {
+  font-size: 1.2rem;
+  color: var(--black);
+  text-transform: capitalize;
+}
+.cart .cart-container table tr td .box .content span {
+  font-size: 1rem;
+  color: var(--light-color);
+  text-transform: lowercase;
+}
+.cart .cart-container table tr td .box .content p {
+  font-size: 1rem;
+  color: var(--main-color);
+  text-transform: lowercase;
+}
+.cart .cart-container table tr td .box .content p:hover {
+  color: red;
+  cursor: pointer;
+}
+.cart .cart-container table tr td .input {
+  width: 3rem;
+  height: 3rem;
+  text-align: center;
+  border: 0.1rem solid var(--black);
+}
+.cart .cart-container table tr td p {
+  font-size: 1.5rem;
+  color: var(--black);
+}
+.cart .cart-container table tr td p span {
+  color: var(--main-color);
+}
+.cart .cart-container .total-price {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
+  position: absolute;
+  right: 15%;
+  border-top: 0.3rem solid var(--main-color);
+  padding: 2rem;
+  height: 13.3rem;
+  width: 25rem;
+  margin: 3rem 0;
+}
+.cart .cart-container .total-price p {
+  font-size: 1.3rem;
   color: var(--black);
   text-transform: capitalize;
   margin-bottom: 1rem;
 }
-.products .products-header .default {
-  padding: 0.5rem;
-  background-color: var(--white);
-  color: var(--black);
-  border: 0.1rem solid var(--main-color);
-}
-.products .box-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 3rem;
-  margin: 6rem 0;
-}
-.products .box-container .box img {
-  height: 20rem;
-  width: 15rem;
-  object-fit: cover;
-}
-.products .box-container .box h3 {
-  font-size: 1.6rem;
-  color: var(--black);
-  text-transform: capitalize;
-  margin-bottom: 0.5rem;
-}
-.products .box-container .box .stars i {
-  font-size: 1rem;
-  color: goldenrod;
-  margin-right: 0.5rem;
-  margin-bottom: 0.5rem;
-}
-.products .box-container .box p {
-  font-size: 1.3rem;
+.cart .cart-container .total-price p span {
   color: var(--light-color);
+  margin-left: 3rem;
 }
-.products .pages {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-}
-.products .pages .page {
-  font-size: 1.5rem;
-  color: var(--light-color);
-  width: 5rem;
-  height: 5rem;
-  text-align: center;
-  border: 0.1rem solid var(--main-color);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.products .pages .page:hover {
-  color: var(--white);
-  background-color: var(--main-color);
-}
-.products .box-container .box .flex {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 1rem;
-}
-.products .box-container .box .btn {
-  color: var(--main-color);
-  font-size: 1.2rem;
-  background-color: transparent;
+.cart .cart-container .total-price .btn {
   padding: 0.5rem 1rem;
-  text-align: center;
-  border: 0.1rem solid var(--main-color);
-  width: 100%;
-  margin-left: 2rem;
-}
-.products .box-container .box .btn:hover {
+  background-color: var(--main-color);
   color: var(--white);
-  background: var(--main-color);
+  border-radius: 3rem;
+  font-size: 1.3rem;
 }
-.parent-container {
-  margin: 20px auto;
-  padding: 20px;
-  font-size: 1.5rem;
+.cart .cart-container .total-price .btn:hover {
+  scale: 1.1;
 }

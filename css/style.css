@@ -1,0 +1,958 @@
+:root {
+  --black: #333;
+  --white: #fff;
+  --light-color: #666;
+  --light-bg: #eeeeee;
+  --main-color: #007bff;
+}
+
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+  text-decoration: none;
+  outline: none;
+  transition: all 0.2s linear;
+}
+html {
+  font-size: 62.5%;
+}
+::-webkit-scrollbar {
+  width: 1rem;
+}
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--main-color);
+}
+::selection {
+  background-color: var(--main-color);
+  color: var(--white);
+}
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 8%;
+  background-color: var(--white);
+  box-shadow: 0.1rem 0.5rem 1rem var(--black);
+}
+.header .logo img {
+  height: 6rem;
+}
+
+.header .navbar a {
+  font-size: 1.5rem;
+  color: var(--black);
+  margin-right: 2rem;
+}
+.header .navbar a:hover {
+  color: var(--main-color);
+  text-decoration: underline;
+}
+.header .navbar i {
+  font-size: 2rem;
+  color: var(--black);
+}
+.header .navbar i:hover {
+  color: var(--main-color);
+}
+
+.header .icon a {
+  font-size: 2px;
+  color: #333;
+  margin-left: 1px;
+}
+
+.header .icon a :hover {
+  color: #007bff;
+}
+
+.home {
+  background-color: #e1e1e1;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  padding-top: 20rem;
+  display: flex;
+  flex-flow: column;
+  align-items: start;
+  justify-content: center;
+  padding: 3rem 8%;
+}
+.home h1 {
+  font-size: 4rem;
+  text-transform: capitalize;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+.home h1 span {
+  color: var(--main-color);
+}
+.home p {
+  font-size: 1.2rem;
+  color: #999;
+  line-height: 1.5;
+  text-transform: lowercase;
+  width: 50rem;
+  margin-bottom: 2rem;
+}
+
+.pictures {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 5rem;
+  background-color: var(--light-bg);
+}
+.pictures img {
+  height: 30rem;
+  width: 20rem;
+  object-fit: cover;
+  box-shadow: 0.1rem 0.5rem 1rem var(--light-color);
+  border: 0.1rem solid var(--main-color);
+}
+.featured {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 3rem 8%;
+  background-color: var(--white);
+}
+.featured h3 {
+  font-size: 3.5rem;
+  color: var(--black);
+  text-transform: uppercase;
+  padding: 3rem 0;
+}
+.featured .box-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
+.featured .box-container .box img {
+  height: 20rem;
+  width: 15rem;
+  object-fit: cover;
+}
+.featured .box-container .box h3 {
+  font-size: 1.6rem;
+  color: var(--black);
+  text-transform: capitalize;
+}
+.featured .box-container .box .stars i {
+  font-size: 1rem;
+  color: goldenrod;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.featured .box-container .box p {
+  font-size: 1.3rem;
+  color: var(--light-color);
+}
+.latest {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 3rem 12%;
+  background-color: var(--white);
+}
+.latest h3 {
+  font-size: 3.5rem;
+  color: var(--black);
+  text-transform: uppercase;
+  margin: 3rem 0;
+}
+.latest .box-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
+.latest .box-container .box img {
+  height: 20rem;
+  width: 15rem;
+  object-fit: cover;
+}
+.latest .box-container .box h3 {
+  font-size: 1.6rem;
+  color: var(--black);
+  text-transform: capitalize;
+  margin-bottom: 0.5rem;
+}
+.latest .box-container .box .stars i {
+  font-size: 1rem;
+  color: goldenrod;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.latest .box-container .box p {
+  font-size: 1.3rem;
+  color: var(--light-color);
+}
+.promo {
+  background: url(../images/smart-watch.jpg);
+  background-position: center;
+  background-size: cover;
+  height: 80vh;
+  padding: 3rem 8%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+}
+.promo p {
+  font-size: 1.5rem;
+  color: #999;
+  text-transform: lowercase;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+  width: 60rem;
+}
+.promo h3 {
+  font-size: 3rem;
+  color: var(--white);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.promo .btn {
+  color: var(--white);
+  font-size: 1.5rem;
+  background-color: var(--main-color);
+  padding: 0.5rem 3rem;
+  border-radius: 3rem;
+  text-align: center;
+  box-shadow: 0.1rem 0.5rem 1rem var(--black);
+}
+.promo .btn:hover {
+  background-color: #fff;
+  color: var(--black);
+}
+.clients {
+  background-color: var(--light-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 9%;
+}
+.clients .box-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  padding: 3rem 0;
+}
+.clients .box-container .box img {
+  height: 7rem;
+  width: 7rem;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0.1rem 0.5rem 1rem burlywood;
+}
+.clients .box-container .box {
+  background-color: var(--white);
+  padding: 1rem;
+  border-radius: 3rem;
+  text-align: center;
+  border: 0.1rem solid var(--main-color);
+  box-shadow: 0.1rem 0.5rem 1rem var(--light-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.clients .box-container .box i {
+  font-size: 5rem;
+  color: var(--main-color);
+  margin: 2rem 0;
+}
+.clients .box-container .box p {
+  font-size: 1.2rem;
+  color: var(--light-color);
+  text-transform: lowercase;
+  line-height: 1.5;
+}
+.clients .box-container .box .stars i {
+  font-size: 1rem;
+  color: goldenrod;
+}
+.clients .box-container .box span {
+  font-size: 1.7rem;
+  color: var(--black);
+  text-transform: capitalize;
+  margin-top: 1rem;
+}
+.footer {
+  background-color: var(--black);
+  padding: 3rem 8%;
+  text-align: center;
+}
+.footer .box-container {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 3rem;
+  padding: 3rem 0;
+  width: 100%;
+  border-bottom: 0.1rem solid #999;
+  margin-bottom: 2rem;
+}
+.footer .box-container .box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.footer .box-container .box h3 {
+  font-size: 2rem;
+  color: var(--white);
+}
+.footer .box-container .box a {
+  font-size: 1.2rem;
+  color: #999;
+  text-transform: lowercase;
+}
+.footer .box-container .box a:hover {
+  color: var(--main-color);
+  text-decoration: underline;
+}
+.footer .credit {
+  font-size: 1.8rem;
+  color: var(--white);
+}
+.footer .credit span {
+  color: var(--main-color);
+}
+
+.products {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15rem 15%;
+  flex-direction: column;
+}
+.products .products-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 4rem;
+}
+.products .products-header h3 {
+  font-size: 2rem;
+  color: var(--black);
+  text-transform: capitalize;
+  margin-bottom: 1rem;
+}
+.products .products-header .default {
+  padding: 0.5rem;
+  background-color: var(--white);
+  color: var(--black);
+  border: 0.1rem solid var(--main-color);
+}
+.products .box-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 3rem;
+  margin: 6rem 0;
+}
+.products .box-container .box img {
+  height: 20rem;
+  width: 15rem;
+  object-fit: cover;
+}
+.products .box-container .box h3 {
+  font-size: 1.6rem;
+  color: var(--black);
+  text-transform: capitalize;
+  margin-bottom: 0.5rem;
+}
+.products .box-container .box .stars i {
+  font-size: 1rem;
+  color: goldenrod;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.products .box-container .box p {
+  font-size: 1.3rem;
+  color: var(--light-color);
+}
+.products .pages {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.products .pages .page {
+  font-size: 1.5rem;
+  color: var(--light-color);
+  width: 5rem;
+  height: 5rem;
+  text-align: center;
+  border: 0.1rem solid var(--main-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.products .pages .page:hover {
+  color: var(--white);
+  background-color: var(--main-color);
+}
+.products .box-container .box .flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+.products .box-container .box .btn {
+  color: var(--main-color);
+  font-size: 1.2rem;
+  background-color: transparent;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  border: 0.1rem solid var(--main-color);
+  width: 100%;
+  margin-left: 2rem;
+}
+.products .box-container .box .btn:hover {
+  color: var(--white);
+  background: var(--main-color);
+}
+.details {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 10rem 10%;
+  margin-top: 4rem;
+}
+.details .image img {
+  height: 35rem;
+  width: 35rem;
+  object-fit: cover;
+  border: 0.1rem solid var(--light-color);
+}
+.details .content {
+  width: 40rem;
+  padding: 1rem;
+}
+.details .content span {
+  color: var(--main-color);
+  font-size: 1.3rem;
+  margin: 1rem 0;
+}
+.details .content h1 {
+  font-size: 3.5rem;
+  color: var(--black);
+  text-transform: uppercase;
+}
+.details .content .size {
+  font-size: 1.4rem;
+  color: var(--light-color);
+  text-transform: lowercase;
+  margin-bottom: 1rem;
+  border: 0.1rem solid var(--main-color);
+  padding: 0.5rem 2rem;
+}
+.details .content .input {
+  font-size: 1.4rem;
+  color: var(--light-color);
+  text-transform: lowercase;
+  margin-bottom: 1rem;
+  border: 0.1rem solid var(--main-color);
+  padding: 0.5rem;
+  width: 4rem;
+  text-align: center;
+}
+.details .content .btn {
+  font-size: 15px;
+  padding: 5px;
+  text-align: center;
+  border: 1px solid var(--main-color);
+  width: 50%;
+  margin: 5px;
+  color: var(--white);
+  background: var(--main-color);
+  margin-bottom: 2rem;
+  border-radius: 2rem;
+}
+.details .content .btn:hover {
+  background-color: transparent;
+  color: var(--main-color);
+}
+.details .content h3 {
+  font-size: 2rem;
+  color: var(--black);
+  margin: 1rem 0;
+}
+.details .content h3 i {
+  margin-left: 1rem;
+  color: var(--main-color);
+}
+.details .content p {
+  font-size: 1.2rem;
+  color: var(--light-color);
+  line-height: 1.5;
+  text-transform: lowercase;
+}
+.rolated-products {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+  padding: 3rem 15%;
+}
+.rolated-products .flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.rolated-products .flex h3 {
+  font-size: 2.5rem;
+  color: var(--black);
+}
+.rolated-products .flex a {
+  font-size: 1.5rem;
+  color: var(--black);
+  margin-bottom: 1rem;
+  text-decoration: underline;
+}
+.rolated-products .flex a:hover {
+  color: var(--main-color);
+}
+.rolated-products .box-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 3rem;
+  margin: 6rem 0;
+}
+.rolated-products .box-container .box img {
+  height: 20rem;
+  width: 15rem;
+  object-fit: cover;
+}
+.rolated-products .box-container .box h3 {
+  font-size: 1.6rem;
+  color: var(--black);
+  text-transform: capitalize;
+  margin-bottom: 0.5rem;
+}
+.rolated-products .box-container .box .stars i {
+  font-size: 1rem;
+  color: goldenrod;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.rolated-products .box-container .box p {
+  font-size: 1.3rem;
+  color: var(--light-color);
+}
+.rolated-products .box-container .box .btn {
+  color: var(--main-color);
+  font-size: 1.2rem;
+  background-color: transparent;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  border: 0.1rem solid var(--main-color);
+  width: 100%;
+  margin-left: 2rem;
+  text-decoration: none;
+}
+.rolated-products .box-container .box .btn:hover {
+  color: var(--white);
+  background: var(--main-color);
+}
+.cart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10rem 15%;
+  margin-bottom: 10rem;
+}
+.cart .cart-container {
+  width: 100%;
+}
+.cart .cart-container table {
+  width: 100%;
+}
+.cart .cart-container table th {
+  background: var(--main-color);
+  color: var(--white);
+  padding: 0.5rem 1rem;
+  font-size: 1.7rem;
+}
+.cart .cart-container table tr td {
+  text-align: center;
+}
+.cart .cart-container table tr td .box {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+.cart .cart-container table tr td .box img {
+  height: 8rem;
+  width: 8rem;
+  object-fit: cover;
+}
+.cart .cart-container table tr td .box .content h3 {
+  font-size: 1.2rem;
+  color: var(--black);
+  text-transform: capitalize;
+}
+.cart .cart-container table tr td .box .content span {
+  font-size: 1rem;
+  color: var(--light-color);
+  text-transform: lowercase;
+}
+.cart .cart-container table tr td .box .content p {
+  font-size: 1rem;
+  color: var(--main-color);
+  text-transform: lowercase;
+}
+.cart .cart-container table tr td .box .content p:hover {
+  color: red;
+  cursor: pointer;
+}
+.cart .cart-container table tr td .input {
+  width: 3rem;
+  height: 3rem;
+  text-align: center;
+  border: 0.1rem solid var(--black);
+}
+.cart .cart-container table tr td p {
+  font-size: 1.5rem;
+  color: var(--black);
+}
+.cart .cart-container table tr td p span {
+  color: var(--main-color);
+}
+.cart .cart-container .total-price {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
+  position: absolute;
+  right: 15%;
+  border-top: 0.3rem solid var(--main-color);
+  padding: 2rem;
+  height: 13.3rem;
+  width: 25rem;
+  margin: 3rem 0;
+}
+.cart .cart-container .total-price p {
+  font-size: 1.3rem;
+  color: var(--black);
+  text-transform: capitalize;
+  margin-bottom: 1rem;
+}
+.cart .cart-container .total-price p span {
+  color: var(--light-color);
+  margin-left: 3rem;
+}
+.cart .cart-container .total-price .btn {
+  padding: 0.5rem 1rem;
+  background-color: var(--main-color);
+  color: var(--white);
+  border-radius: 3rem;
+  font-size: 1.3rem;
+}
+.cart .cart-container .total-price .btn:hover {
+  scale: 1.1;
+}
+.login-register {
+  padding: 10rem 8%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5rem;
+}
+.login-register .image img {
+  height: 30rem;
+  width: 30rem;
+  object-fit: cover;
+}
+.login-register .forms-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.login-register .forms-container .login,
+.login-register .forms-container .register {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+  border: 0.1rem solid var(--light-color);
+  width: 50rem;
+}
+.login-register .forms-container .register {
+  display: none;
+}
+.login-register .forms-container .login form,
+.login-register .forms-container .register form {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+.login-register .forms-container .login form h3,
+.login-register .forms-container .register form h3 {
+  font-size: 2rem;
+  color: var(--black);
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+.login-register .forms-container .login form .input,
+.login-register .forms-container .register form .input {
+  font-size: 1.3rem;
+  color: var(--black);
+  text-transform: lowercase;
+  margin: 1rem;
+  background: transparent;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: 0.1rem solid var(--black);
+}
+.login-register .forms-container .login form .input:focus,
+.login-register .forms-container .register form .input:focus {
+  border: 0.2rem solid var(--main-color);
+}
+.login-register .forms-container .login form .btn,
+.login-register .forms-container .register form .btn {
+  font-size: 1.5rem;
+  color: var(--white);
+  background-color: var(--main-color);
+  padding: 0.6rem 2rem;
+  border-radius: 3rem;
+  margin-top: 2rem;
+  margin-left: 1.5rem;
+}
+.login-register .forms-container .login form .btn:hover,
+.login-register .forms-container .register form .btn:hover {
+  transform: scale(1.1);
+  border-radius: 0;
+}
+.login-register .forms-container .login form p {
+  margin-bottom: 2rem;
+  font-size: 1.4rem;
+  color: var(--black);
+  text-transform: capitalize;
+  margin-left: 1.2rem;
+}
+.login-register .forms-container .login form p span {
+  color: var(--main-color);
+  text-decoration: underline;
+}
+.login-register .forms-container .login form p span:hover {
+  color: red;
+  cursor: pointer;
+}
+.about {
+  padding: 10rem 8%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.about h1 {
+  font-size: 4rem;
+  color: var(--black);
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  background-color: whitesmoke;
+  width: 100%;
+  text-align: center;
+}
+.about h1 span {
+  color: var(--main-color);
+}
+.about .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+.about .container .content h3 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+.about .container .content h3 span {
+  color: var(--main-color);
+}
+.about .container .content p {
+  font-size: 1.1rem;
+  color: var(--light-color);
+  line-height: 1.5;
+  text-transform: lowercase;
+  margin-bottom: 2rem;
+}
+
+.about .text {
+  margin-top: 2px;
+  background-color: whitesmoke;
+  padding: 30px;
+}
+.about .text h2 {
+  font-size: 1.9rem;
+  color: #c08261;
+  margin-bottom: 2rem;
+  text-decoration: overline;
+}
+.about .text p {
+  font-size: 1.2rem;
+  color: var(--light-color);
+  line-height: 1.5;
+  text-transform: lowercase;
+  margin-bottom: 2rem;
+}
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 15rem 8%;
+}
+.contact h1 {
+  font-size: 4rem;
+  color: var(--black);
+  margin-bottom: 3rem;
+  background-color: moccasin;
+  width: 100%;
+  text-align: center;
+}
+.contact h1 span {
+  color: var(--main-color);
+}
+.contact p {
+  font-size: 1.3rem;
+  color: var(--light-color);
+  text-transform: lowercase;
+  line-height: 1.5;
+  text-align: center;
+  width: 70rem;
+  margin-bottom: 8rem;
+}
+.contact .form-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+}
+.contact .form-container .contact-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 3rem;
+  margin-top: 5rem;
+}
+.contact .form-container .contact-info .box {
+  width: 35rem;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  gap: 2rem;
+}
+.contact .form-container .contact-info .box i {
+  font-size: 3rem;
+  color: var(--white);
+  padding: 1rem;
+  background-color: var(--main-color);
+  border-radius: 50%;
+  height: 6rem;
+  width: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contact .form-container .contact-info .box .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.contact .form-container .contact-info .box .content span {
+  font-size: 1.6rem;
+  color: var(--main-color);
+  text-transform: capitalize;
+}
+.contact .form-container .contact-info .box .content p {
+  font-size: 1rem;
+  color: var(--black);
+  text-transform: lowercase;
+  width: 15rem;
+  height: 3rem;
+}
+.contact .form-container .form {
+  width: 50rem;
+}
+.contact .form-container .form form {
+  background-color: var(--light-bg);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+}
+.contact .form-container .form form h3 {
+  font-size: 2rem;
+  color: black;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.contact .form-container .form form .input {
+  width: 90%;
+  padding: 1rem;
+  border-radius: 1rem;
+  color: var(--black);
+  text-transform: lowercase;
+}
+.contact .form-container .form form textarea {
+  resize: none;
+  height: 10rem;
+  margin-bottom: 2rem;
+}
+.contact .form-container .form form .btn {
+  font-size: 1.5rem;
+  color: var(--white);
+  background-color: var(--black);
+  text-align: center;
+  padding: 0.7rem 2rem;
+  width: 10rem;
+}
+.contact .form-container .form form .btn:hover {
+  background-color: var(--main-color);
+  border-radius: 3rem;
+}
+
