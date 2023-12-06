@@ -67,97 +67,75 @@
     </form>
     <section class="rolated-products">
       <div class="flex">
-        <h3>rolated products</h3>
-        <a href="products.html">view more</a>
+        <h3>더보기</h3>
+        <a href="/compaies">view more</a>
       </div>
+
       <div class="box-container">
+        
+        <% if(list.length >= 4 ){%>
+          <% for(let i=0; i<3; i++){ %>
         <div class="box">
-          <img src="images/p9.avif" alt="" />
-          <h3>Product name</h3>
+          <img src="<%=list[i].path%>" alt="" />
+          <h3><%=list[i].title%></h3>
           <div class="stars">
             <i class="fa fa-star" aria-hidden="true"></i>
             <i class="fa fa-star" aria-hidden="true"></i>
             <i class="fa fa-star" aria-hidden="true"></i>
             <i class="fa fa-star" aria-hidden="true"></i>
             <i class="fa fa-star-half" aria-hidden="true"></i>
-          </div>
+          </div>          
           <div class="flex">
-            <p>$50.00</p>
-            <a href="details.html" class="btn">view details</a>
+            <p>연봉 : <%=list[i].sal%>만원</p>
+            <a href="/details/<%= list[i]._id %>"  class="btn">view details</a>
           </div>
         </div>
-        <div class="box">
-          <img src="images/p10.avif" alt="" />
-          <h3>Product name</h3>
-          <div class="stars">
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star-half" aria-hidden="true"></i>
-          </div>
-          <div class="flex">
-            <p>$50.00</p>
-            <a href="details.html" class="btn">view details</a>
-          </div>
-        </div>
-        <div class="box">
-          <img src="images/p11.avif" alt="" />
-          <h3>Product name</h3>
-          <div class="stars">
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star-half" aria-hidden="true"></i>
-          </div>
-          <div class="flex">
-            <p>$50.00</p>
-            <a href="details.html" class="btn">view details</a>
-          </div>
-        </div>
-        <div class="box">
-          <img src="images/p12.avif" alt="" />
-          <h3>Product name</h3>
-          <div class="stars">
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star-half" aria-hidden="true"></i>
-          </div>
-          <div class="flex">
-            <p>$50.00</p>
-            <a href="details.html" class="btn">view details</a>
-          </div>
-        </div>
+        <%}} else{%>
+          <% for(let i=0; i<list.length; i++){ %>
+            <div class="box">
+              <img src="<%=list[i].path%>" alt="" />
+              <h3><%=list[i].title%></h3>
+              <div class="stars">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star-half" aria-hidden="true"></i>
+              </div>          
+              <div class="flex">
+                <p>연봉 : <%=list[i].sal%>만원</p>
+                <a href="/details/<%= list[i]._id %>"  class="btn">view details</a>
+              </div>
+            </div>
+        <%}}%>
+
       </div>
     </section>
-
     <footer class="footer">
       <div class="box-container">
         <div class="box">
-          <h3>quick links</h3>
-          <a href="/home">home</a>
-          <a href="/products">products</a>
-          <a href="/about">about</a>
-          <a href="/contact">contact</a>
-          <a href="/account">account</a>
+          <h3>빠른 메뉴</h3>
+          <a href="/">홈</a>
+          <a href="/introduction">소개</a>
+          <a href="/companies">기업별</a>
+          <a href="/contact">지역별</a>
+          <a href="/cart">마이페이지</a>
         </div>
         <div class="box">
-          <h3>follow us</h3>
-          <a href="#">facebook</a>
-          <a href="#">instagram</a>
-          <a href="#">youtube</a>
+          <h3>소셜미디어</h3>
+          <a href="https://web.dongguk.ac.kr/main">homepage</a>
+          <a href="https://www.instagram.com/dongguk_wise_official"
+            >instagram</a
+          >
+          <a href="https://www.youtube.com/@wise2034">youtube</a>
         </div>
         <div class="box">
-          <h3>contact us</h3>
-          <a href="#">phone: 0654325678</a>
-          <a href="#">email: omaimaaouane@gmail.com</a>
-          <a href="#">address: morocco, casablanca-567890</a>
+          <h3>문의</h3>
+          <a>phone: 054-770-2114</a>
+          <a>email: dguhuman@dongguk.ac.kr</a>
+          <a>address: [38066] 경북 경주시 동대로 123 동국대학교 WISE캠퍼스</a>
         </div>
       </div>
-      <div class="credit">created by <span>miss. web designer</span></div>
     </footer>
     <script src = "https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script>

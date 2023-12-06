@@ -49,13 +49,54 @@
 
     <section class="cart">
       <div class="cart-container">
+        <main>
+        <h2>사용자 이름 : <%= user.username %></h2>
+        <h2>아이디 : <%= user.userid %></h2>
+        <h2>Email: <%= user.email %></h2>
+        <h2>전화번호 : <%= user.phone %></h2>
+        <button>개인정보 수정</button>
+        </main>
+
+        <%if(user.type == "company"){%>
+          <h2>작성한 글</h2>
         <table>
-          
+          <tr>
+            <th>기업</th>
+            <th>마감일</th>
+            <th>삭제</th>
+          </tr>
+          <%if (list != null){%>
+          <% for(let i=0; i<list.length; i++){%>
+          <tr>
+            <td>
+              <div class="box">
+                <img src="<%= list[i].path %>" alt="" />
+                <div class="content">
+                  <a href="/details/<%= list[i]._id %>"><h3><%= list[i].title%></h3></a>
+                  
+                </div>
+              </div>
+            </td>
+            <td>
+              <p><span><%= list[i].deadline%></span></p>
+            </td>
+            <td>
+              <p><span><button class = "list_delete" data-id = "<%= list[i]._id%>">삭제</button></p>
+            </td>
+          </tr>
+          <% }} %>
+          </table>
+        <%}%>
+
+
+        <h2>찜 목록</h2>
+        <table>
           <tr>
             <th>기업</th>
             <th>지역</th>
             <th>연봉</th>
           </tr>
+          <%if (data != null){%>
           <% for(let i=0; i<data.length; i++){%>
           <tr>
             <td>
@@ -68,13 +109,13 @@
               </div>
             </td>
             <td>
-              <p><span><%= data[i].local%></span></p>
+              <p><i class="fa fa-map" aria-hidden="true"></i><span><%= data[i].local%></span></p>
             </td>
             <td>
               <p><span><%= data[i].sal%></span>만원</p>
             </td>
           </tr>
-          <% } %>
+          <% }} %>
           </table>
 
       </div>
@@ -85,29 +126,30 @@
       <div class="box-container">
         <div class="box">
           <h3>빠른 메뉴</h3>
-          <a href="home.html">홈</a>
-          <a href="introduction.html">소개</a>
-          <a href="companies.html">기업별</a>
-          <a href="contact.html">지역별</a>
-          <a href="cart.html">마이페이지</a>
+          <a href="/">홈</a>
+          <a href="/introduction">소개</a>
+          <a href="/companies">기업별</a>
+          <a href="/contact">지역별</a>
+          <a href="/cart">마이페이지</a>
         </div>
         <div class="box">
           <h3>소셜미디어</h3>
-          <a href="#">facebook</a>
-          <a href="#">instagram</a>
-          <a href="#">youtube</a>
+          <a href="https://web.dongguk.ac.kr/main">homepage</a>
+          <a href="https://www.instagram.com/dongguk_wise_official"
+            >instagram</a
+          >
+          <a href="https://www.youtube.com/@wise2034">youtube</a>
         </div>
         <div class="box">
           <h3>문의</h3>
-          <a href="#">phone: 0654325678</a>
-          <a href="#">email: omaimaaouane@gmail.com</a>
-          <a href="#">address: morocco, casablanca-567890</a>
+          <a>phone: 054-770-2114</a>
+          <a>email: dguhuman@dongguk.ac.kr</a>
+          <a>address: [38066] 경북 경주시 동대로 123 동국대학교 WISE캠퍼스</a>
         </div>
       </div>
     </footer>
-    
-<script src = "https://code.jquery.com/jquery-1.12.4.min.js"></script>
-<script>
+    <script src = "https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script>
 
   $('.delete').click(function(e){
       console.log("delete");
@@ -115,6 +157,23 @@
       $.ajax({
           type:'post',
           url : '/delete',
+          data : {_id:sid}
+      }).done(function(result){
+          console.log("삭제 성공");
+          location.reload();
+      }).fail(function(xhr,textStatus,errorThrown){
+        console.log(errorThrown)  ;
+        alert("오류");
+      });
+  });
+
+  
+  $('.list_delete').click(function(e){
+      console.log("list_delete");
+      var sid = e.target.dataset.id;
+      $.ajax({
+          type:'post',
+          url : '/list_delete',
           data : {_id:sid}
       }).done(function(result){
           console.log("삭제 성공");

@@ -57,11 +57,6 @@ app.get('/', function(req,res){
     res.render('home.ejs',{user:req.session.user});
     
 });
-app.get('/zone',function(req,res){
-    console.log("zone");
-    res.render('zone.ejs',{user:req.session.user});
-})
-
 app.get('/companies', function(req, res){
     console.log("companies");
     mydb
@@ -72,6 +67,16 @@ app.get('/companies', function(req, res){
             res.render('companies.ejs', {data : result, user:req.session.user});
             })
 });
+app.get('/search',function(req,res){
+    console.log(req.query.value);
+    mydb
+    .collection("list")
+    .find({title:req.query.value}).toArray()
+    .then((result)=>{
+        console.log(result);
+        res.render("sresult.ejs",{data : result, user:req.session.user});
+    })
+})
 app.post('/sorting', (req, res) => {
     const selectedValue = req.body.sorting;
     if(selectedValue == '최근등록순'){
@@ -104,6 +109,22 @@ app.post('/delete', function(req, res){
     .then(result=>{
         console.log("삭제완료");
         res.status(200).send();
+        res.redirect('/cart');
+    }).catch(err=>{
+        console.log(err);
+        res.status(500).send();
+    })
+    
+});
+app.post('/list_delete', function(req, res){
+    console.log("list_delete");
+    req.body._id = new ObjectId(req.body._id);
+    console.log(req.body._id);
+    mydb.collection('list').deleteOne({_id:req.body._id, userid:req.session.user.userid})
+    .then(result=>{
+        console.log("삭제완료");
+        res.status(200).send();
+        res.redirect('/cart');
     }).catch(err=>{
         console.log(err);
         res.status(500).send();
@@ -230,13 +251,109 @@ app.post("/signup_company",function(req,res){
     }
 
 });
+
+
+app.get("/update",function(req,res){
+    console.log("update");
+    res.render('update.ejs',{user:req.session.user});
+});
+app.post("/update",function(req,res){
+    console.log("update");
+    const userid = req.body.userid;
+    const userpw = req.body.userpw;
+    const new_userpw = req.body.new_userpw;
+    const confirm_password = req.body.confirm_password;
+    const username = req.body.username;
+    const email = req.body.email;
+    const phone = req.body.phone;
+    console.log(userpw);
+    if(userpw==''){
+        //몽고 DB 추가
+        mydb.collection('user').updateOne({userid : req.session.user.userid},
+            {
+            $set : {
+            userid : userid, 
+            username : username,
+            email : email,
+            phone : phone,
+            }
+            })
+            .then(result => {
+                console.log(result);
+                console.log('데이터 수정 성공');
+                console.log('업데이트');
+                req.session.destroy();
+            })
+            res.status(200).send();
+    }
+    else if(userpw ==req.session.user.userpw){
+        if(new_userpw == confirm_password){
+            console.log(new_pw,confirm_password);
+            console.log("아이디 : "+userid);
+            console.log("비밀번호 : "+new_userpw);
+            console.log("이름 : "+username);
+            console.log("이메일 : "+email);
+            console.log("전화번호 : "+phone);
+        
+            //몽고 DB 추가
+            mydb.collection('user').insertOne({userid : req.session.user.userid},
+                {
+                    $set : {
+                userid : userid, 
+                userpw : new_userpw,
+                username : username,
+                email : email,
+                phone : phone,
+                }
+                })
+                .then(result => {
+                    console.log(result);
+                    console.log('데이터 수정 성공');
+                    console.log("업데이트");
+                    req.session.destroy();
+                })
+                res.status(200).send();
+        }else{
+            console.log('수정 실패');
+            res.status(500).send();
+        }
+       
+
+    }else{
+        console.log('수정 실패');
+        res.status(500).send();
+    }
+
+});
+
 app.post("/confirm_userid",function(req,res){
     console.log("confirm_userid");
     const confirm_userid = req.body.confirm_userid;
     console.log(confirm_userid);
     console.log(req.body.confirm_userid);
 
-    mydb
+    if(req.session.user){
+        if(confirm_userid==req.session.user.userid){
+            console.log('사용가능');
+            res.status(200).send();
+        }else{
+                    
+            mydb
+            .collection("user")
+            .findOne({userid : confirm_userid})
+            .then((result)=>{
+                if(result == null){
+                    console.log('중복 없음');
+                    res.status(200).send();
+                }else{
+                    console.log('가입 실패');
+                    res.status(500).send();
+                }
+            });
+        }
+    }else{
+
+        mydb
         .collection("user")
         .findOne({userid : confirm_userid})
         .then((result)=>{
@@ -248,6 +365,8 @@ app.post("/confirm_userid",function(req,res){
                 res.status(500).send();
             }
         });
+
+    }
 
 });
 app.get("/enter",function(req,res){
@@ -292,17 +411,10 @@ app.post('/save',function(req,res){
 })
 
 
-app.get('/mypage',function(req,res){
-    console.log("mypage");
-    if(req.session.user){
-        res.render('mypage.ejs',{data:req.session.user});
-    }else{
-        res.redirect('/login');
-    }
-})
 
 app.get('/cart',function(req,res){
     console.log("cart");
+    
     if(req.session.user){
         mydb
         .collection("like")
@@ -319,15 +431,24 @@ app.get('/cart',function(req,res){
                     .find({ _id: { $in: objectIdArray } })
                     .toArray()
                     .then((list_result) => {
+                        if(req.session.user.type == 'company'){
+                        mydb
+                        .collection("list")
+                        .find({userid: req.session.user.userid})
+                        .toArray()
+                        .then((result) => {
+                            res.render('cart.ejs', {list : result, data: list_result, user: req.session.user });
+                    })}else{
+
                         console.log(list_result);
                         res.render('cart.ejs', { data: list_result, user: req.session.user });
-                    })
+                    } })
                     .catch(err => {
                         console.error("Error finding documents: ", err);
                         res.redirect('/error'); // 에러 페이지로 리다이렉트
                     });
             } else {
-
+                res.render('cart.ejs', { data: null, user: req.session.user });
             }})
     }else{
         res.redirect('/login');
@@ -355,17 +476,6 @@ app.get('/download',function(req,res){
     res.render('download.ejs');
 })
 
-app.get("/list", function(req, res){
-    console.log("list");
-    mydb
-        .collection("list")
-        .find()
-        .toArray()
-        .then((result)=>{
-                res.render('list.ejs', {data : result, user:req.session.user});
-            })
-});
-
 app.get("/content/:id", (req, res) => {
     console.log(req.params.id);
     req.params.id = new ObjectId(req.params.id);
@@ -384,8 +494,14 @@ app.get("/details/:id", (req, res) => {
     .collection("list")
     .findOne({_id : req.params.id})
     .then((result)=>{
-        console.log(result);
-        res.render('details.ejs', {data : result, user:req.session.user});
+        mydb
+        .collection("list")
+        .find({ _id: { $ne: req.params.id }})
+        .toArray()
+        .then((list_result)=>{
+            console.log(result);
+            res.render('details.ejs', {data : result,list :list_result,  user:req.session.user});
+            })
         })
 });
 
@@ -421,30 +537,10 @@ app.post("/details/:id", (req, res) => {
         console.log('찜 실패');
     }
 });
-app.get('/test', function(req, res){
-    mydb
-    .collection("like")
-    .findOne({userid:req.session.user.userid})
-    .then((like_result)=>{
-        console.log(like_result);
-        like_result.listid = new ObjectId(like_result.listid);
-        mydb
-       .collection("list")
-        .findOne({_id:like_result.listid})
-        .then((list_result)=>{
-            res.render('test.ejs', {like : like_result, list: list_result});
-        })
-        
-        })
-});
-
 
 //css
 app.get('/style.css', function(req, res){
     res.sendFile(__dirname + '/css/style.css');
-});
-app.get('/zone.css', function(req, res){
-    res.sendFile(__dirname + '/css/zone.css');
 });
 app.get('/companies.css', function(req, res){
     res.sendFile(__dirname + '/css/companies.css');
@@ -460,12 +556,6 @@ app.get('/login.css', function(req, res){
 });
 app.get('/enter.css', function(req, res){
     res.sendFile(__dirname + '/css/enter.css');
-});
-app.get('/mypage.css', function(req, res){
-    res.sendFile(__dirname + '/css/mypage.css');
-});
-app.get('/list.css', function(req, res){
-    res.sendFile(__dirname + '/css/list.css');
 });
 app.get('/signup.css', function(req, res){
     res.sendFile(__dirname + '/css/signup.css');

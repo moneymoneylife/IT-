@@ -123,7 +123,6 @@
     
 <script src = "https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script>
-  /*
 $('.default').change(function() {
   console.log("sort");
     const selectedValue = $(this).val(); // 선택된 값 가져오기
@@ -139,11 +138,10 @@ $('.default').change(function() {
           alert("오류");
       });
   });
-*/
+
   $('.sbtn').click(function(){
-    console.log("클릭");
     let inputValue = $('.sword').val();
-    location.href='/search?value='+inputValue;
+    location.href='\\search?value='+inputValue;
   })
 </script>
   </body>

@@ -77,6 +77,7 @@ html {
 }
 
 .footer {
+  margin: 100px auto;
   background-color: var(--black);
   padding: 3rem 8%;
   text-align: center;
@@ -88,7 +89,6 @@ html {
   gap: 3rem;
   padding: 3rem 0;
   width: 100%;
-  border-bottom: 0.1rem solid #999;
   margin-bottom: 2rem;
 }
 .footer .box-container .box {
@@ -130,7 +130,7 @@ html {
   font-size: 4rem;
   color: var(--black);
   margin-bottom: 3rem;
-  background-color: moccasin;
+  background-color: whitesmoke;
   width: 100%;
   text-align: center;
 }

@@ -77,7 +77,7 @@ html {
 }
 
 .home {
-  background-color: #e1e1e1;
+  background-color: floralwhite;
   background-position: center;
   background-size: cover;
   height: 100vh;
@@ -91,7 +91,7 @@ html {
 .home h1 {
   font-size: 4rem;
   text-transform: capitalize;
-  color: var(--white);
+  color: var(--black);
   margin-bottom: 1rem;
 }
 .home h1 span {
@@ -106,21 +106,53 @@ html {
   margin-bottom: 2rem;
 }
 
+.home .main p span {
+  color: red;
+}
+
+.top {
+  background-color: #eeeeee;
+  width: auto;
+  height: auto;
+}
+
+.top h2 {
+  text-align: center;
+  font-size: 30px;
+}
+
+.top h2 span {
+  color: gold;
+}
+
 .pictures {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
+  gap: 30px;
   padding: 5rem;
   background-color: var(--light-bg);
 }
 .pictures img {
-  height: 30rem;
-  width: 20rem;
+  height: 200px;
+  width: 300px;
   object-fit: cover;
-  box-shadow: 0.1rem 0.5rem 1rem var(--light-color);
-  border: 0.1rem solid var(--main-color);
+  box-shadow: 5px 5px 10px var(--light-color);
+  border: 0.1rem solid gold;
 }
+
+.pictures .pic h3 {
+  text-align: center;
+  align-items: center;
+  text-transform: capitalize;
+  font-size: 15px;
+}
+
+.pictures .pic h3 span {
+  font-size: 20px;
+  color: red;
+}
+
 .featured {
   display: flex;
   align-items: center;
@@ -131,37 +163,29 @@ html {
   background-color: var(--white);
 }
 .featured h3 {
-  font-size: 3.5rem;
+  font-size: 30px;
   color: var(--black);
   text-transform: uppercase;
+  text-align: center;
   padding: 3rem 0;
 }
 .featured .box-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 3rem;
+  gap: 30px;
 }
 .featured .box-container .box img {
-  height: 20rem;
-  width: 15rem;
+  height: 190px;
+  width: 190px;
   object-fit: cover;
 }
-.featured .box-container .box h3 {
-  font-size: 1.6rem;
-  color: var(--black);
-  text-transform: capitalize;
-}
-.featured .box-container .box .stars i {
-  font-size: 1rem;
-  color: goldenrod;
-  margin-right: 0.5rem;
-  margin-bottom: 0.5rem;
-}
 .featured .box-container .box p {
-  font-size: 1.3rem;
-  color: var(--light-color);
+  text-align: center;
+  font-size: 15px;
+  color: var(--black);
 }
+
 .latest {
   display: flex;
   align-items: center;
@@ -169,7 +193,7 @@ html {
   flex-direction: column;
   gap: 2rem;
   padding: 3rem 12%;
-  background-color: var(--white);
+  background-color: whitesmoke;
 }
 .latest h3 {
   font-size: 3.5rem;
@@ -185,8 +209,8 @@ html {
   gap: 3rem;
 }
 .latest .box-container .box img {
-  height: 20rem;
-  width: 15rem;
+  height: 180px;
+  width: 180px;
   object-fit: cover;
 }
 .latest .box-container .box h3 {
@@ -205,44 +229,7 @@ html {
   font-size: 1.3rem;
   color: var(--light-color);
 }
-.promo {
-  background: url(../images/smart-watch.jpg);
-  background-position: center;
-  background-size: cover;
-  height: 80vh;
-  padding: 3rem 8%;
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  justify-content: center;
-}
-.promo p {
-  font-size: 1.5rem;
-  color: #999;
-  text-transform: lowercase;
-  margin-bottom: 1rem;
-  line-height: 1.5;
-  width: 60rem;
-}
-.promo h3 {
-  font-size: 3rem;
-  color: var(--white);
-  text-transform: uppercase;
-  margin-bottom: 1rem;
-}
-.promo .btn {
-  color: var(--white);
-  font-size: 1.5rem;
-  background-color: var(--main-color);
-  padding: 0.5rem 3rem;
-  border-radius: 3rem;
-  text-align: center;
-  box-shadow: 0.1rem 0.5rem 1rem var(--black);
-}
-.promo .btn:hover {
-  background-color: #fff;
-  color: var(--black);
-}
+
 .clients {
   background-color: var(--light-bg);
   display: flex;
@@ -309,7 +296,6 @@ html {
   gap: 3rem;
   padding: 3rem 0;
   width: 100%;
-  border-bottom: 0.1rem solid #999;
   margin-bottom: 2rem;
 }
 .footer .box-container .box {
@@ -340,102 +326,6 @@ html {
   color: var(--main-color);
 }
 
-.products {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 15rem 15%;
-  flex-direction: column;
-}
-.products .products-header {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 4rem;
-}
-.products .products-header h3 {
-  font-size: 2rem;
-  color: var(--black);
-  text-transform: capitalize;
-  margin-bottom: 1rem;
-}
-.products .products-header .default {
-  padding: 0.5rem;
-  background-color: var(--white);
-  color: var(--black);
-  border: 0.1rem solid var(--main-color);
-}
-.products .box-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 3rem;
-  margin: 6rem 0;
-}
-.products .box-container .box img {
-  height: 20rem;
-  width: 15rem;
-  object-fit: cover;
-}
-.products .box-container .box h3 {
-  font-size: 1.6rem;
-  color: var(--black);
-  text-transform: capitalize;
-  margin-bottom: 0.5rem;
-}
-.products .box-container .box .stars i {
-  font-size: 1rem;
-  color: goldenrod;
-  margin-right: 0.5rem;
-  margin-bottom: 0.5rem;
-}
-.products .box-container .box p {
-  font-size: 1.3rem;
-  color: var(--light-color);
-}
-.products .pages {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-}
-.products .pages .page {
-  font-size: 1.5rem;
-  color: var(--light-color);
-  width: 5rem;
-  height: 5rem;
-  text-align: center;
-  border: 0.1rem solid var(--main-color);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.products .pages .page:hover {
-  color: var(--white);
-  background-color: var(--main-color);
-}
-.products .box-container .box .flex {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 1rem;
-}
-.products .box-container .box .btn {
-  color: var(--main-color);
-  font-size: 1.2rem;
-  background-color: transparent;
-  padding: 0.5rem 1rem;
-  text-align: center;
-  border: 0.1rem solid var(--main-color);
-  width: 100%;
-  margin-left: 2rem;
-}
-.products .box-container .box .btn:hover {
-  color: var(--white);
-  background: var(--main-color);
-}
 .details {
   display: flex;
   align-items: center;
@@ -539,6 +429,7 @@ html {
 .rolated-products .flex a:hover {
   color: var(--main-color);
 }
+
 .rolated-products .box-container {
   display: flex;
   align-items: center;
@@ -583,376 +474,3 @@ html {
   color: var(--white);
   background: var(--main-color);
 }
-.cart {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10rem 15%;
-  margin-bottom: 10rem;
-}
-.cart .cart-container {
-  width: 100%;
-}
-.cart .cart-container table {
-  width: 100%;
-}
-.cart .cart-container table th {
-  background: var(--main-color);
-  color: var(--white);
-  padding: 0.5rem 1rem;
-  font-size: 1.7rem;
-}
-.cart .cart-container table tr td {
-  text-align: center;
-}
-.cart .cart-container table tr td .box {
-  display: flex;
-  align-items: start;
-  justify-content: center;
-  gap: 1rem;
-  padding: 1rem;
-}
-.cart .cart-container table tr td .box img {
-  height: 8rem;
-  width: 8rem;
-  object-fit: cover;
-}
-.cart .cart-container table tr td .box .content h3 {
-  font-size: 1.2rem;
-  color: var(--black);
-  text-transform: capitalize;
-}
-.cart .cart-container table tr td .box .content span {
-  font-size: 1rem;
-  color: var(--light-color);
-  text-transform: lowercase;
-}
-.cart .cart-container table tr td .box .content p {
-  font-size: 1rem;
-  color: var(--main-color);
-  text-transform: lowercase;
-}
-.cart .cart-container table tr td .box .content p:hover {
-  color: red;
-  cursor: pointer;
-}
-.cart .cart-container table tr td .input {
-  width: 3rem;
-  height: 3rem;
-  text-align: center;
-  border: 0.1rem solid var(--black);
-}
-.cart .cart-container table tr td p {
-  font-size: 1.5rem;
-  color: var(--black);
-}
-.cart .cart-container table tr td p span {
-  color: var(--main-color);
-}
-.cart .cart-container .total-price {
-  display: flex;
-  align-items: start;
-  justify-content: center;
-  flex-direction: column;
-  position: absolute;
-  right: 15%;
-  border-top: 0.3rem solid var(--main-color);
-  padding: 2rem;
-  height: 13.3rem;
-  width: 25rem;
-  margin: 3rem 0;
-}
-.cart .cart-container .total-price p {
-  font-size: 1.3rem;
-  color: var(--black);
-  text-transform: capitalize;
-  margin-bottom: 1rem;
-}
-.cart .cart-container .total-price p span {
-  color: var(--light-color);
-  margin-left: 3rem;
-}
-.cart .cart-container .total-price .btn {
-  padding: 0.5rem 1rem;
-  background-color: var(--main-color);
-  color: var(--white);
-  border-radius: 3rem;
-  font-size: 1.3rem;
-}
-.cart .cart-container .total-price .btn:hover {
-  scale: 1.1;
-}
-.login-register {
-  padding: 10rem 8%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 5rem;
-}
-.login-register .image img {
-  height: 30rem;
-  width: 30rem;
-  object-fit: cover;
-}
-.login-register .forms-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-.login-register .forms-container .login,
-.login-register .forms-container .register {
-  padding: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 1rem;
-  border: 0.1rem solid var(--light-color);
-  width: 50rem;
-}
-.login-register .forms-container .register {
-  display: none;
-}
-.login-register .forms-container .login form,
-.login-register .forms-container .register form {
-  padding: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  width: 100%;
-}
-.login-register .forms-container .login form h3,
-.login-register .forms-container .register form h3 {
-  font-size: 2rem;
-  color: var(--black);
-  text-transform: uppercase;
-  margin-bottom: 2rem;
-}
-.login-register .forms-container .login form .input,
-.login-register .forms-container .register form .input {
-  font-size: 1.3rem;
-  color: var(--black);
-  text-transform: lowercase;
-  margin: 1rem;
-  background: transparent;
-  width: 100%;
-  padding: 1rem;
-  border-radius: 1rem;
-  border: 0.1rem solid var(--black);
-}
-.login-register .forms-container .login form .input:focus,
-.login-register .forms-container .register form .input:focus {
-  border: 0.2rem solid var(--main-color);
-}
-.login-register .forms-container .login form .btn,
-.login-register .forms-container .register form .btn {
-  font-size: 1.5rem;
-  color: var(--white);
-  background-color: var(--main-color);
-  padding: 0.6rem 2rem;
-  border-radius: 3rem;
-  margin-top: 2rem;
-  margin-left: 1.5rem;
-}
-.login-register .forms-container .login form .btn:hover,
-.login-register .forms-container .register form .btn:hover {
-  transform: scale(1.1);
-  border-radius: 0;
-}
-.login-register .forms-container .login form p {
-  margin-bottom: 2rem;
-  font-size: 1.4rem;
-  color: var(--black);
-  text-transform: capitalize;
-  margin-left: 1.2rem;
-}
-.login-register .forms-container .login form p span {
-  color: var(--main-color);
-  text-decoration: underline;
-}
-.login-register .forms-container .login form p span:hover {
-  color: red;
-  cursor: pointer;
-}
-.about {
-  padding: 10rem 8%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.about h1 {
-  font-size: 4rem;
-  color: var(--black);
-  text-transform: uppercase;
-  margin-bottom: 2rem;
-  background-color: whitesmoke;
-  width: 100%;
-  text-align: center;
-}
-.about h1 span {
-  color: var(--main-color);
-}
-.about .container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-}
-.about .container .content h3 {
-  font-size: 2rem;
-  margin-bottom: 10px;
-}
-.about .container .content h3 span {
-  color: var(--main-color);
-}
-.about .container .content p {
-  font-size: 1.1rem;
-  color: var(--light-color);
-  line-height: 1.5;
-  text-transform: lowercase;
-  margin-bottom: 2rem;
-}
-
-.about .text {
-  margin-top: 2px;
-  background-color: whitesmoke;
-  padding: 30px;
-}
-.about .text h2 {
-  font-size: 1.9rem;
-  color: #c08261;
-  margin-bottom: 2rem;
-  text-decoration: overline;
-}
-.about .text p {
-  font-size: 1.2rem;
-  color: var(--light-color);
-  line-height: 1.5;
-  text-transform: lowercase;
-  margin-bottom: 2rem;
-}
-.contact {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 15rem 8%;
-}
-.contact h1 {
-  font-size: 4rem;
-  color: var(--black);
-  margin-bottom: 3rem;
-  background-color: moccasin;
-  width: 100%;
-  text-align: center;
-}
-.contact h1 span {
-  color: var(--main-color);
-}
-.contact p {
-  font-size: 1.3rem;
-  color: var(--light-color);
-  text-transform: lowercase;
-  line-height: 1.5;
-  text-align: center;
-  width: 70rem;
-  margin-bottom: 8rem;
-}
-.contact .form-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 4rem;
-}
-.contact .form-container .contact-info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  padding: 3rem;
-  margin-top: 5rem;
-}
-.contact .form-container .contact-info .box {
-  width: 35rem;
-  display: flex;
-  align-items: start;
-  justify-content: center;
-  gap: 2rem;
-}
-.contact .form-container .contact-info .box i {
-  font-size: 3rem;
-  color: var(--white);
-  padding: 1rem;
-  background-color: var(--main-color);
-  border-radius: 50%;
-  height: 6rem;
-  width: 6rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.contact .form-container .contact-info .box .content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.contact .form-container .contact-info .box .content span {
-  font-size: 1.6rem;
-  color: var(--main-color);
-  text-transform: capitalize;
-}
-.contact .form-container .contact-info .box .content p {
-  font-size: 1rem;
-  color: var(--black);
-  text-transform: lowercase;
-  width: 15rem;
-  height: 3rem;
-}
-.contact .form-container .form {
-  width: 50rem;
-}
-.contact .form-container .form form {
-  background-color: var(--light-bg);
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  width: 100%;
-}
-.contact .form-container .form form h3 {
-  font-size: 2rem;
-  color: black;
-  text-transform: uppercase;
-  margin-bottom: 1rem;
-}
-.contact .form-container .form form .input {
-  width: 90%;
-  padding: 1rem;
-  border-radius: 1rem;
-  color: var(--black);
-  text-transform: lowercase;
-}
-.contact .form-container .form form textarea {
-  resize: none;
-  height: 10rem;
-  margin-bottom: 2rem;
-}
-.contact .form-container .form form .btn {
-  font-size: 1.5rem;
-  color: var(--white);
-  background-color: var(--black);
-  text-align: center;
-  padding: 0.7rem 2rem;
-  width: 10rem;
-}
-.contact .form-container .form form .btn:hover {
-  background-color: var(--main-color);
-  border-radius: 3rem;
-}
-

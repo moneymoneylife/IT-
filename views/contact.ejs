@@ -22,10 +22,9 @@
         <a href="/contact">지역별</a>
         <a href="/cart">마이페이지</a>
       </nav>
-      <% if(user){ %>
-        <%= user.username %> 님
-        <a href = "/logout">로그아웃</a>
-    <% } else { %>
+      <% if(user){ %> <%= user.username %> 님
+      <a href="/logout">로그아웃</a>
+      <% } else { %>
       <div class="icon">
         <a href="/login">
           <svg
@@ -44,10 +43,10 @@
           </svg>
         </a>
       </div>
-        <% } %>
+      <% } %>
     </header>
 
-    <section class="contact">
+    <!-- <section class="contact">
       <h1><span>c</span>ontact <span>u</span>s</h1>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam qui
@@ -92,29 +91,31 @@
           </form>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <footer class="footer">
       <div class="box-container">
         <div class="box">
-          <h3>quick links</h3>
-          <a href="home.html">home</a>
-          <a href="products.html">products</a>
-          <a href="about.html">about</a>
-          <a href="contact.html">contact</a>
-          <a href="account.html">account</a>
+          <h3>빠른 메뉴</h3>
+          <a href="/">홈</a>
+          <a href="/introduction">소개</a>
+          <a href="/companies">기업별</a>
+          <a href="/contact">지역별</a>
+          <a href="/cart">마이페이지</a>
         </div>
         <div class="box">
-          <h3>follow us</h3>
-          <a href="#">facebook</a>
-          <a href="#">instagram</a>
-          <a href="#">youtube</a>
+          <h3>소셜미디어</h3>
+          <a href="https://web.dongguk.ac.kr/main">homepage</a>
+          <a href="https://www.instagram.com/dongguk_wise_official"
+            >instagram</a
+          >
+          <a href="https://www.youtube.com/@wise2034">youtube</a>
         </div>
         <div class="box">
-          <h3>contact us</h3>
-          <a href="#">phone: 0654325678</a>
-          <a href="#">email: omaimaaouane@gmail.com</a>
-          <a href="#">address: morocco, casablanca-567890</a>
+          <h3>문의</h3>
+          <a>phone: 054-770-2114</a>
+          <a>email: dguhuman@dongguk.ac.kr</a>
+          <a>address: [38066] 경북 경주시 동대로 123 동국대학교 WISE캠퍼스</a>
         </div>
       </div>
     </footer>
